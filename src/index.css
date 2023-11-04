@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Zeyada&display=swap");
+@import url("https://fonts.cdnfonts.com/css/october-twilight");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .typing { */
+/* Text style */
+/* font-family: "Inconsolata", Consolas, monospace; */
+/* font-size: 6vw;
+  color: #00ffe1; */
+
+/* Core styles */
+/* position: relative;
+
+  &::after {
+    content: "\2BC8";
+    position: absolute;
+    right: 0;
+    width: 100%;
+    color: white;
+    background: rgb(0, 0, 0);
+    animation: typing 4s steps(var(--steps)) infinite; /* Use infinite to make it repeat */
+
+/* Animation */
+/* @keyframes typing {
+  to {
+    width: 0;
+  }
+} */
+
+/* @keyframes caret {
+  50% {
+    color: transparent;
+  }
+} */
+/* .type {
+  color: transparent;
+  -webkit-text-stroke: 1px #fff;
+  background: url("../assets/back.png");
+  -webkit-background-clip: text;
+  background-position: 0 0;
+  animation: back 20s linear infinite;
+}
+@keyframes back {
+  100% {
+    background-position: 2500px 0;
+  }
+} */
+.coolBeans {
+  border: 1px solid currentColor;
+  color: rgb(255, 182, 46);
+  background-color: transparent;
+  overflow: hidden;
+  padding: 1rem 2rem;
+  position: relative;
+  /* transition: 0.2s transform ease-in-out;
+  will-change: transform; */
+  z-index: 0;
+}
+
+.coolBeans::after {
+  background-color: rgb(255, 241, 222);
+  /* border-radius: 3rem; */
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-100%, 0) rotate(60deg);
+  transform-origin: top left;
+  transition: 0.3s transform ease-out;
+  will-change: transform;
+  z-index: -1;
+}
+
+.coolBeans:hover::after {
+  transform: translate(0, 0);
+}
+
+.coolBeans:hover {
+  border: 2px solid transparent;
+  transform: scale(1.05);
+  will-change: transform; /* This line is already correct. No need to change it. */
+}
+
+.menu {
+  -webkit-text-stroke: 1px #fff;
+  color: transparent;
+  background-image: linear-gradient(rgb(255, 248, 236), rgb(255, 248, 236));
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-position: -1600px 90px;
+  animation: backcolor 10s linear infinite;
+}
+@keyframes backcolor {
+  100% {
+    background-position: 0 0;
+  }
+}
