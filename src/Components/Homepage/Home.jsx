@@ -28,14 +28,15 @@ const Home = () => {
           <Banner></Banner>
         </motion.div>
       </div>
-      <section className="">
-        <div className="container max-w-screen-[1000px] mx-auto">
-          <img src={slide1} />
-          <img src={slide2} />
-          <img src={slide3} />
-          <img src={slide4} />
+      <section className="mt-20 mb-20">
+        <div className="container max-w-screen-[1200px] mx-auto">
+          <img className="rounded-lg" src={slide1} />
+          <img className="rounded-lg" src={slide2} />
+          <img className="rounded-lg" src={slide3} />
+          <img className="rounded-lg" src={slide4} />
         </div>
       </section>
+      {/* extra section 2 */}
     </div>
   );
 };

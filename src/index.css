@@ -101,7 +101,11 @@
     background-position: 0 0;
   }
 }
-
+:root {
+  --magnifier: 6;
+  --gap: 1vmin;
+  --transition: 0.5s;
+}
 .container {
   width: 80vw;
   height: 50vmin;
@@ -115,7 +119,7 @@ img {
   --brightness: 0.75;
   --grayscale: 1;
   transition: flex var(--transition), filter var(--transition);
-  height: 200px;
+  height: 400px;
   filter: grayscale(var(--grayscale)) brightness(var(--brightness));
   object-fit: cover;
   overflow: hidden;
@@ -127,3 +131,5 @@ img:hover {
   --grayscale: 0;
   flex: var(--magnifier);
 }
+
+/* extra section 2 */
