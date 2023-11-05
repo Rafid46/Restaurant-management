@@ -1,7 +1,13 @@
+import Footer from "../Footer";
+import NavBar from "../NavBar.jsx/NavBar";
+
 const AllFood = () => {
   return (
     <div>
-      <h1>all food</h1>
+      <div>
+        <NavBar></NavBar>
+      </div>
+      <Footer></Footer>
     </div>
   );
 };
