@@ -107,16 +107,40 @@ const NavBar = () => {
           ></label> */}
           {user ? (
             <div>
-              <img
-                className="rounded-full w-[40px] h-[40px] mr-2"
-                src={user.photoURL}
-              />
+              <div className="dropdown dropdown-hover">
+                <label tabIndex={0} className="btn m-1">
+                  <img
+                    className="rounded-full w-[40px] h-[40px] mr-2"
+                    src={user.photoURL}
+                  />
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                  <Link to="">
+                    <li className="text-white hover:text-orange-500 hover:bg-gray-300">
+                      <a>My added food items</a>
+                    </li>
+                  </Link>
+                  <Link to="">
+                    <li className="text-white  hover:text-orange-500 hover:bg-gray-300">
+                      <a>Add a food item</a>
+                    </li>
+                  </Link>
+                  <Link to="">
+                    <li className="text-white  hover:text-orange-500 hover:bg-gray-300">
+                      <a>My ordered food items</a>
+                    </li>
+                  </Link>
+                </ul>
+              </div>
               <p className="text-2xl font-thin text-white mr-2">
                 {user.displayName}
               </p>
               <button
                 onClick={handleSignOut}
-                className="btn rounded-none w-[130px] hover:text-orange-500"
+                className="btn rounded-none coolBeans hover:text-orange-500"
               >
                 L O G O U T
               </button>
