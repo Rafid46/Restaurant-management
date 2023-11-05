@@ -34,17 +34,31 @@ const Register = () => {
     createUser(email, password).then((result) => {
       updateUser(name, photo).then(() => {
         console.log(result);
+        const userName = result.user?.displayName;
+        const dp = result.user?.photoURL;
+        const user = { email, userName: userName, dp: dp };
+        fetch("http://localhost:5008/api/user", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(user),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
         // Navigate("/");
       });
     });
   };
   return (
     <div>
-      <div className="bg-gray-900">
+      <div className="">
         <NavBar></NavBar>
         <div className="flex items-center justify-center">
-          <div className="card px-8 py-6 rounded-lg bg-gray-800 w-72">
-            <h1 className="text-center font-bold text-3xl text-white">
+          <div className="card px-8 py-6 rounded-lg  w-80">
+            <h1 className="text-center font-bold text-3xl text-orange-300">
               R E G I S T E R
             </h1>
             <form onSubmit={handleSignUp} className="my-6">

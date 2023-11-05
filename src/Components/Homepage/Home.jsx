@@ -54,8 +54,8 @@ const Home = () => {
       </section>
       {/* 2nd section */}
       <section>
-        <div>
-          <img src={sectionImage2} alt="" />
+        <div className="">
+          <img className="w-full mx-auto" src={sectionImage2} alt="" />
         </div>
       </section>
       {/* footer */}
