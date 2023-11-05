@@ -1,7 +1,43 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import NavBar from "../NavBar.jsx/NavBar";
+import { useContext, useState } from "react";
+import { AuthContext } from "../Provider.jsx/AuthProvider";
+import swal from "sweetalert";
 
 const Register = () => {
+  const [registerError, setRegisterError] = useState("");
+  const { createUser, updateUser } = useContext(AuthContext);
+  //   const { createUser } = useContext(AuthContext);
+  const handleSignUp = (e) => {
+    e.preventDefault(e);
+    const form = e.target;
+    const email = form.email.value;
+    const name = form.name.value;
+    const photo = form.photo.value;
+    const password = form.password.value;
+    console.log(form, name, email, photo, password);
+
+    setRegisterError("");
+    if (password.length < 6) {
+      setRegisterError("password should be at least 6 characters or longer");
+      return;
+    } else if (!/[A-Z]/.test(password)) {
+      setRegisterError("password should have capital letters");
+      // return swal("Good job!", "You clicked the button!", "success");
+    } else if (/^[a-zA-Z0-9]*$/.test(password)) {
+      setRegisterError("password should have special character");
+      return;
+    } else {
+      swal("Good job!", "account created succesfully", "success");
+    }
+    // update user
+    createUser(email, password).then((result) => {
+      updateUser(name, photo).then(() => {
+        console.log(result);
+        // Navigate("/");
+      });
+    });
+  };
   return (
     <div>
       <div className="bg-gray-800">
@@ -11,7 +47,7 @@ const Register = () => {
             <h1 className="text-center font-bold text-3xl text-white">
               R E G I S T E R
             </h1>
-            <form className="my-6">
+            <form onSubmit={handleSignUp} className="my-6">
               <input
                 className="p-2 my-2 rounded w-[100%] focus:outline-blue-600"
                 placeholder="Name"
@@ -28,7 +64,7 @@ const Register = () => {
                 className="p-2 my-2 rounded w-[100%] focus:outline-blue-600"
                 placeholder="Email"
                 type="email"
-                name="name"
+                name="email"
               ></input>
               <input
                 className="p-2 my-2 rounded w-[100%] focus:outline-blue-600"
@@ -49,6 +85,7 @@ const Register = () => {
                 </Link>
               </span>
             </p>
+            {registerError && <p className="text-red-600">{registerError}</p>}
           </div>
         </div>
       </div>

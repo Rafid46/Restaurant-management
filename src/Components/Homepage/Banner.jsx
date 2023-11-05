@@ -13,7 +13,7 @@ const Banner = () => {
         </h1>
         <div className="text-center">
           <Link to="">
-            <button className="btn text-xl font-ZZ rounded-none w-[200px] px-5 pb-4 pt-4 bg-transparent text-white hover:text-orange-500">
+            <button className="btn text-xl font-ZZ rounded-none w-[200px] px-5 pb-9 pt-4 bg-transparent text-white hover:text-orange-500">
               M E N U S
             </button>
           </Link>

@@ -9,6 +9,7 @@ import AllFood from "./Components/Homepage/AllFood.jsx";
 import Blog from "./Components/Homepage/Blog.jsx";
 import Login from "./Components/Homepage/Login.jsx";
 import Register from "./Components/Homepage/Register";
+import AuthProviders from "./Components/Provider.jsx/AuthProvider.jsx";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProviders>
+      <RouterProvider router={router} />
+    </AuthProviders>
   </React.StrictMode>
 );

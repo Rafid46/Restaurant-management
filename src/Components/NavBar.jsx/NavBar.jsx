@@ -1,36 +1,25 @@
 import { Link, NavLink } from "react-router-dom";
+import logo from "../../assets/logo.png";
+import { useContext } from "react";
+import { AuthContext } from "../Provider.jsx/AuthProvider";
+import swal from "sweetalert";
 const NavBar = () => {
-  //   const { user, logOut } = useContext(AuthContext);
-  //   const [theme, setTheme] = useState(
-  //     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
-  //   );
-  //   const handleToggle = (e) => {
-  //     if (e.target.checked) {
-  //       setTheme("dark");
-  //     } else {
-  //       setTheme("light");
-  //     }
-  //   };
-  //   useEffect(() => {
-  //     localStorage.setItem("theme", theme);
-  //     const localTheme = localStorage.getItem("theme");
-  //     document.querySelector("html").setAttribute("data-theme", localTheme);
-  //   }, [theme]);
-  //   const handleSignOut = () => {
-  //     logOut()
-  //       .then((result) => {
-  //         console.log(result.user);
-  //         return swal("", "Logout successfully", "success");
-  //       })
-  //       .catch((error) => {
-  //         console.error(error);
-  //       });
-  //   };
+  const { user, logOut } = useContext(AuthContext);
+  const handleSignOut = () => {
+    logOut()
+      .then((result) => {
+        console.log(result.user);
+        return swal("", "Logout successfully", "success");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   const links = (
     <div>
       <div className="mt-10 mb-10">
-        <nav className="flex items-center justify-between">
+        <nav className="flex flex-col md:flex-row lg:flex-row items-center justify-between">
           <li className="text-2xl mr-20 font-bold text-orange-600">
             <NavLink
               to="/"
@@ -38,7 +27,7 @@ const NavBar = () => {
                 isPending ? "pending" : isActive ? "" : "text-white"
               }
             >
-              HOME
+              Home
             </NavLink>
           </li>
           <li className="text-2xl mr-20  font-bold text-orange-600">
@@ -48,7 +37,7 @@ const NavBar = () => {
                 isPending ? "pending" : isActive ? "" : "text-white"
               }
             >
-              ALL FOOD
+              All Food
             </NavLink>
           </li>
           <li className="text-2xl mr-20  font-bold text-orange-600">
@@ -58,7 +47,7 @@ const NavBar = () => {
                 isPending ? "pending" : isActive ? "" : "text-white"
               }
             >
-              BLOG
+              Blog
             </NavLink>
           </li>
           <li className="text-2xl mr-20  font-bold text-orange-600">
@@ -68,7 +57,7 @@ const NavBar = () => {
                 isPending ? "pending" : isActive ? "" : "text-white"
               }
             >
-              LOGIN
+              Login
             </NavLink>
           </li>
         </nav>
@@ -104,51 +93,43 @@ const NavBar = () => {
             </ul>
           </div>
           <a className="btn btn-ghost normal-case text-xl">
-            {/* <img className="w-[50px] h-[50px]" src="" alt="" /> */}
+            <img className="w-[50px] h-[50px]" src={logo} alt="" />
             <p className="text-4xl font-bol text-[#00FFE1] font-Com"></p>
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu-horizontal  px-1">{links}</ul>
+          <ul className="menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar">
           {/* <label
             tabIndex={0}
             className="btn btn-ghost btn-circle avatar"
           ></label> */}
-          {/* {user ? (
+          {user ? (
             <div>
               <img
                 className="rounded-full w-[40px] h-[40px] mr-2"
-                // src={user.photoURL}
+                src={user.photoURL}
               />
               <p className="text-2xl font-thin text-white mr-2">
                 {user.displayName}
               </p>
               <button
                 onClick={handleSignOut}
-                className="btn rounded-none w-[130px] hover:text-[#00FFE1]"
+                className="btn rounded-none w-[130px] hover:text-orange-500"
               >
                 L O G O U T
               </button>
             </div>
           ) : (
             <div>
-              <CgProfile className="text-gray-400 text-5xl font-normal mr-1 lg:mr-5 items-center"></CgProfile>
               <Link to="/login">
-                <button className="btn rounded-none w-[130px] hover:text-[#00FFE1]">
+                <button className="btn coolBeans rounded-none hover:text-orange-500">
                   L o g i n
                 </button>
               </Link>
             </div>
-          )} */}
-          <div>
-            <Link to="/login">
-              <button className="btn coolBeans rounded-none hover:text-orange-500">
-                L o g i n
-              </button>
-            </Link>
-          </div>
+          )}
         </div>
       </div>
     </div>
