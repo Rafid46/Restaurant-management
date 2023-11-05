@@ -20,44 +20,44 @@ const NavBar = () => {
     <div>
       <div className="mt-10 mb-10">
         <nav className="flex flex-col md:flex-row lg:flex-row items-center justify-between">
-          <li className="text-2xl mr-20 font-bold text-orange-600">
+          <li className="text-2xl mr-20 font-thin text-orange-600">
             <NavLink
               to="/"
               className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "" : "text-white"
               }
             >
-              Home
+              HOME
             </NavLink>
           </li>
-          <li className="text-2xl mr-20  font-bold text-orange-600">
+          <li className="text-2xl mr-20  font-thin text-orange-600">
             <NavLink
               to="/allFood"
               className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "" : "text-white"
               }
             >
-              All Food
+              ALL FOOD
             </NavLink>
           </li>
-          <li className="text-2xl mr-20  font-bold text-orange-600">
+          <li className="text-2xl mr-20  font-thin text-orange-600">
             <NavLink
               to="/blog"
               className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "" : "text-white"
               }
             >
-              Blog
+              BLOG
             </NavLink>
           </li>
-          <li className="text-2xl mr-20  font-bold text-orange-600">
+          <li className="text-2xl mr-20  font-thin text-orange-600">
             <NavLink
               to="/login"
               className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "" : "text-white"
               }
             >
-              Login
+              LOGIN
             </NavLink>
           </li>
         </nav>

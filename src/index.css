@@ -5,49 +5,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .typing { */
-/* Text style */
-/* font-family: "Inconsolata", Consolas, monospace; */
-/* font-size: 6vw;
-  color: #00ffe1; */
-
-/* Core styles */
-/* position: relative;
-
-  &::after {
-    content: "\2BC8";
-    position: absolute;
-    right: 0;
-    width: 100%;
-    color: white;
-    background: rgb(0, 0, 0);
-    animation: typing 4s steps(var(--steps)) infinite; /* Use infinite to make it repeat */
-
-/* Animation */
-/* @keyframes typing {
-  to {
-    width: 0;
-  }
-} */
-
-/* @keyframes caret {
-  50% {
-    color: transparent;
-  }
-} */
-/* .type {
-  color: transparent;
-  -webkit-text-stroke: 1px #fff;
-  background: url("../assets/back.png");
-  -webkit-background-clip: text;
-  background-position: 0 0;
-  animation: back 20s linear infinite;
+body {
+  background-image: url(./assets/43731-O4130W.png);
 }
-@keyframes back {
-  100% {
-    background-position: 2500px 0;
-  }
-} */
 .coolBeans {
   border: 1px solid currentColor;
   color: rgb(255, 182, 46);
@@ -115,9 +75,9 @@
   gap: var(--gap);
 }
 
-img {
-  --brightness: 0.75;
-  --grayscale: 1;
+.container img {
+  --brightness: 100;
+  --grayscale: 100px;
   transition: flex var(--transition), filter var(--transition);
   height: 400px;
   filter: grayscale(var(--grayscale)) brightness(var(--brightness));
@@ -126,7 +86,7 @@ img {
   flex: 1;
 }
 
-img:hover {
+.container img:hover {
   --brightness: 1.15;
   --grayscale: 0;
   flex: var(--magnifier);

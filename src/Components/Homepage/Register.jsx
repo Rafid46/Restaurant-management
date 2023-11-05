@@ -40,7 +40,7 @@ const Register = () => {
   };
   return (
     <div>
-      <div className="bg-gray-800">
+      <div className="bg-gray-900">
         <NavBar></NavBar>
         <div className="flex items-center justify-center">
           <div className="card px-8 py-6 rounded-lg bg-gray-800 w-72">
