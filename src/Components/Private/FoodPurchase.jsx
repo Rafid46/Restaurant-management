@@ -25,7 +25,7 @@ const FoodPurchase = () => {
     //         const userName = result.user?.displayName;
     //         const userEmail = result.user?.email;
     //    const user = { userEmail:userEmail, userName:userName, };
-    fetch("http://localhost:5008/api/foods", {
+    fetch("http://localhost:5008/api/foods/addedFood", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -36,7 +36,7 @@ const FoodPurchase = () => {
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
-          swal("Product added", "", "success");
+          swal("Food purchased", "enjoy your meal", "success");
         }
         form.reset();
       });
