@@ -1,10 +1,10 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import NavBar from "./NavBar.jsx/NavBar";
 import Footer from "./Footer";
 
 const Details = () => {
   const food = useLoaderData();
-  const { foodName, image, price, description, foodOrigin, foodCategory } =
+  const { foodName, image, price, description, foodOrigin, foodCategory, _id } =
     food;
 
   const dynamicBgStyle = {
@@ -29,21 +29,23 @@ const Details = () => {
             <div className="max-w-3xl text-center mx-auto">
               <p className="text-lg text-white font-DM">{description}</p>
               <div className="flex items-center justify-center">
-                <p className="text-lg text-white font-DM static w-fit mt-6">
+                <p className="text-lg text-white font-DM static w-fit mt-6 font-semibold">
                   {price}
                 </p>
               </div>
               <div className="flex items-center justify-center">
-                <p className="text-lg text-white font-DM mr-6">
+                <p className="text-lg text-white font-zz mr-6 font-bold">
                   Food Origin:{foodOrigin}
                 </p>
-                <p className="text-lg text-white font-DM">
+                <p className="text-lg text-white font-zz font-bold">
                   Category: {foodCategory}
                 </p>
               </div>
             </div>
             <div className="text-center">
-              <button className="buttom">ORDER</button>
+              <Link to={`/purchase/${_id}`}>
+                <button className="buttom">ORDER</button>
+              </Link>
             </div>
           </div>
         </div>

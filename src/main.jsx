@@ -13,7 +13,8 @@ import AuthProviders from "./Components/Provider.jsx/AuthProvider.jsx";
 import ErrorPage from "./Components/Error/ErrorPage.jsx";
 import AddProduct from "./Components/Data Pages/AddProduct.jsx";
 import Details from "./Components/Details.jsx";
-
+import FoodPurchase from "./Components/Private/FoodPurchase.jsx";
+import PrivateRoute from "./Components/Private/PrivateRoute.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -48,6 +49,16 @@ const router = createBrowserRouter([
       {
         path: "details/:id",
         element: <Details></Details>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5008/api/foods/${params.id}`),
+      },
+      {
+        path: "purchase/:id",
+        element: (
+          <PrivateRoute>
+            <FoodPurchase></FoodPurchase>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5008/api/foods/${params.id}`),
       },
