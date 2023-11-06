@@ -9,11 +9,15 @@ import slide4 from "../../assets/mexican-tacos-with-beef-tomato-sauce-salsa.jpg"
 import sectionImage1 from "../../assets/Untitled-1.png";
 import sectionImage2 from "../../assets/2nd.png";
 import Footer from "../Footer";
+import homeBanner from "../../assets/43731-O4130W.png";
 // import BannerPng from "../../assets/fresh-gourmet-meal-beef-taco-salad-plate-generated-by-ai (1).png";
 // import Banner from "./Homepage/Banner";
 const Home = () => {
   return (
-    <div>
+    <div
+      className="bg-cover bg-center"
+      style={{ backgroundImage: `url(${homeBanner})` }}
+    >
       <div
         style={{ backgroundImage: `url(${bannerImage})` }}
         className="bg-cover bg-center h-[1000px] max-w-10xl mx-auto"
