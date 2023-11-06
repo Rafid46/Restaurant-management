@@ -1,32 +1,33 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-key */
 /* eslint-disable no-undef */
 import { Link, useLoaderData } from "react-router-dom";
 import Footer from "../Footer";
 import NavBar from "../NavBar.jsx/NavBar";
 import { useEffect, useState } from "react";
-
+import { FaSearchengin } from "react-icons/fa";
 const AllFood = () => {
   // const foods = useLoaderData();
   // console.log(foods);
-  const [foods, setFoods] = useState(useLoaderData([]));
+  const [foods, setFoods] = useState(useLoaderData());
   console.log(foods);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemPerPage] = useState(9);
-  // const handleItemPerPage = (e) => {
-  //   const val = parseInt(e.target.value);
-  //   console.log(val);
-  //   setItemPerPage(val);
-  //   setCurrentPage(0);
-  // };
-  // const itemPerPage = 9;
-  const numberOfPages = Math.ceil(foods.length / itemsPerPage);
-  // console.log(numberOfPages);
+  const [input, setInput] = useState("");
+  // const [search, setSearch] = useState(" ");
+
+  const itemPerPage = 6;
+
+  const numberOfPages = Math.ceil(foods.length / itemPerPage);
+  console.log(numberOfPages);
   // const pages = [...Array(numberOfPages).keys()];
   const pages = [];
   for (let i = 0; i < numberOfPages; i++) {
     pages.push(i);
   }
   // const { foodName, image, foodCategory, price, quantity } = foods;
+  const { _id } = foods;
+  console.log(_id);
   useEffect(() => {
     fetch(
       `http://localhost:5008/api/foods?page=${currentPage}&size=${itemsPerPage}`
@@ -34,10 +35,37 @@ const AllFood = () => {
       .then((res) => res.json())
       .then((data) => setFoods(data));
   }, [currentPage, itemsPerPage]);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (input) {
+      setSearch(input);
+    }
+    console.log("searched");
+  };
   return (
-    <div className="bg-gray-900">
+    <div className="bg-gray-950">
       <div>
         <NavBar></NavBar>
+      </div>
+      {/* search */}
+      <div className="flex items-center justify-center">
+        <form onSubmit={handleSubmit}>
+          <div className="input-container">
+            <input
+              onChange={(e) => setInput(e.target.value)}
+              type="text"
+              value={input}
+              name="text"
+              className="input"
+              placeholder="search..."
+            />
+            <span className="icon text-white">
+              <button>
+                <FaSearchengin></FaSearchengin>
+              </button>
+            </span>
+          </div>
+        </form>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2">
         {foods.map((food) => (
@@ -45,20 +73,6 @@ const AllFood = () => {
             key={food._id}
             className="max-w-screen-[1200px] mx-auto mb-20 mt-10"
           >
-            {/* <div className="text-white">
-              <div className="card w-96 bg-base-100 shadow-xl">
-                <figure>
-                  <img src={food.image} alt="Shoes" />
-                </figure>
-                <div className="card-body">
-                  <h2 className="card-title">{food.foodName}</h2>
-                  <p>{food.price}</p>
-                  <div className="card-actions justify-end">
-                    <button className="btn btn-primary">{food.quantity}</button>
-                  </div>
-                </div>
-              </div>
-            </div> */}
             <article className="article-wrapper">
               <div className="rounded-lg">
                 <img
@@ -78,7 +92,7 @@ const AllFood = () => {
                   <span className="project-type font-DM">{food.quantity}</span>
                   <p className="project-type font-DM">{food.foodCategory}</p>
                 </div>
-                <Link to="/">
+                <Link to={`/details/${food._id}`}>
                   <button className="btn font-DM w-full coolBeans font-semibold text-sm text-red-500">
                     Details
                   </button>
