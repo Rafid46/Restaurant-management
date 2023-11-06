@@ -8,6 +8,7 @@ export default {
         DM: "'DM Sans', sans-serif",
         ZZ: "'Zeyada', cursive;",
         TW: "'October Twilight', sans-serif;",
+        lato: " 'Lato', sans-serif",
       },
     },
   },
