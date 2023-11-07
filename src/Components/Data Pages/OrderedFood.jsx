@@ -7,6 +7,7 @@ import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 // import { useParams } from "react-router-dom";
 import { AuthContext } from "../Provider.jsx/AuthProvider";
+import { Helmet } from "react-helmet-async";
 // import { useParams } from "react-router-dom";
 // import { AuthContext } from "../Provider.jsx/AuthProvider";
 
@@ -18,7 +19,9 @@ const OrderedFood = () => {
   // const orderedFood = useLoaderData();
 
   useEffect(() => {
-    fetch(`http://localhost:5008/api/purchaseFood/?email=${user.email}`)
+    fetch(`http://localhost:5008/api/purchaseFood/?email=${user.email}`, {
+      credentials: "include",
+    })
       .then((res) => res.json())
       .then((data) => {
         setFoodss(data);
@@ -68,6 +71,9 @@ aspect-square  flex justify-center items-center text-yellow-700"
   };
   return (
     <div>
+      <Helmet>
+        <title>Delights || my ordered food</title>
+      </Helmet>
       <div className="bg-gray-950">
         <NavBar></NavBar>
       </div>

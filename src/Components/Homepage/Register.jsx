@@ -3,6 +3,7 @@ import NavBar from "../NavBar.jsx/NavBar";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Provider.jsx/AuthProvider";
 import swal from "sweetalert";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const [registerError, setRegisterError] = useState("");
@@ -54,6 +55,9 @@ const Register = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>Delights || Register</title>
+      </Helmet>
       <div className="bg-gray-950">
         <NavBar></NavBar>
         <div className="flex items-center justify-center">

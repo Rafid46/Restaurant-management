@@ -10,58 +10,64 @@ import sectionImage1 from "../../assets/Untitled-1.png";
 import sectionImage2 from "../../assets/2nd.png";
 import Footer from "../Footer";
 import homeBanner from "../../assets/43731-O4130W.png";
+import { Helmet } from "react-helmet-async";
 // import BannerPng from "../../assets/fresh-gourmet-meal-beef-taco-salad-plate-generated-by-ai (1).png";
 // import Banner from "./Homepage/Banner";
 const Home = () => {
   return (
-    <div
-      className="bg-cover bg-center"
-      style={{ backgroundImage: `url(${homeBanner})` }}
-    >
+    <div>
+      <Helmet>
+        <title>Delights || Home</title>
+      </Helmet>
       <div
-        style={{ backgroundImage: `url(${bannerImage})` }}
-        className="bg-cover bg-center h-[1000px] max-w-10xl mx-auto"
+        className="bg-cover bg-center"
+        style={{ backgroundImage: `url(${homeBanner})` }}
       >
-        <NavBar></NavBar>
-        <motion.div
-          className="mt-[100px]"
-          initial={{ opacity: 0, scale: 2 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{
-            duration: 0.5,
-            delay: 0.7,
-          }}
+        <div
+          style={{ backgroundImage: `url(${bannerImage})` }}
+          className="bg-cover bg-center h-[1000px] max-w-10xl mx-auto"
         >
-          <Banner></Banner>
-        </motion.div>
-      </div>
-      <section
-        className="mt-[200px] mb-10"
-        // style={{ backgroundImage: `url(${sectionImage})` }}
-      >
-        <div className="mt-10">
-          <div className="flex flex-col items-center justify-center mt-10">
-            <img
-              className="mt-20 -bottom-[480px] absolute w-[200px] h-[200px] lg:w-[400px] lg:h-[400px] md:w-[400px] md:h-[400px] z-10"
-              src={sectionImage1}
-            />
-            <div className="container max-w-screen-[1200px] mx-auto relative mt-28">
-              <img className="rounded-lg" src={slide1} />
-              <img className="rounded-lg" src={slide2} />
-              <img className="rounded-lg" src={slide3} />
-              <img className="rounded-lg" src={slide4} />
+          <NavBar></NavBar>
+          <motion.div
+            className="mt-[100px]"
+            initial={{ opacity: 0, scale: 2 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.5,
+              delay: 0.7,
+            }}
+          >
+            <Banner></Banner>
+          </motion.div>
+        </div>
+        <section
+          className="mt-[200px] mb-10"
+          // style={{ backgroundImage: `url(${sectionImage})` }}
+        >
+          <div className="mt-10">
+            <div className="flex flex-col items-center justify-center mt-10">
+              <img
+                className="mt-20 -bottom-[480px] absolute w-[200px] h-[200px] lg:w-[400px] lg:h-[400px] md:w-[400px] md:h-[400px] z-10"
+                src={sectionImage1}
+              />
+              <div className="container max-w-screen-[1200px] mx-auto relative mt-28">
+                <img className="rounded-lg" src={slide1} />
+                <img className="rounded-lg" src={slide2} />
+                <img className="rounded-lg" src={slide3} />
+                <img className="rounded-lg" src={slide4} />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-      {/* 2nd section */}
-      <section>
-        <div className="">
-          <img className="w-full mx-auto" src={sectionImage2} alt="" />
-        </div>
-      </section>
-      {/* footer */}
-      <Footer></Footer>
+        </section>
+        {/* 2nd section */}
+        <section>
+          <div className="">
+            <img className="w-full mx-auto" src={sectionImage2} alt="" />
+          </div>
+        </section>
+        {/* footer */}
+        <Footer></Footer>
+      </div>
     </div>
   );
 };

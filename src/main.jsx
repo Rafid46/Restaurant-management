@@ -17,6 +17,7 @@ import FoodPurchase from "./Components/Private/FoodPurchase.jsx";
 import PrivateRoute from "./Components/Private/PrivateRoute.jsx";
 import OrderedFood from "./Components/Data Pages/OrderedFood.jsx";
 import MyAddedFood from "./Components/Data Pages/MyAddedFood.jsx";
+import { HelmetProvider } from "react-helmet-async";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -46,7 +47,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/addProduct",
-        element: <AddProduct></AddProduct>,
+        element: (
+          <PrivateRoute>
+            <AddProduct></AddProduct>
+          </PrivateRoute>
+        ),
       },
       {
         path: "details/:id",
@@ -75,7 +80,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/myAddedFood",
-        element: <MyAddedFood></MyAddedFood>,
+        element: (
+          <PrivateRoute>
+            <MyAddedFood></MyAddedFood>
+          </PrivateRoute>
+        ),
         loader: () => fetch("http://localhost:5008/api/addedFood"),
       },
     ],
@@ -85,7 +94,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProviders>
-      <RouterProvider router={router} />
+      <HelmetProvider>
+        <RouterProvider router={router} />
+      </HelmetProvider>
     </AuthProviders>
   </React.StrictMode>
 );

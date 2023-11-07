@@ -12,7 +12,7 @@ const Banner = () => {
           <br /> One Bite at a Time!
         </h1>
         <div className="text-center">
-          <Link to="">
+          <Link to="allFood">
             <button className="btn text-xl font-ZZ rounded-none w-[200px] px-5 pb-9 pt-4 bg-transparent text-white hover:text-orange-500">
               M E N U S
             </button>

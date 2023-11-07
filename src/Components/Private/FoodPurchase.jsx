@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import swal from "sweetalert";
 import { AuthContext } from "../Provider.jsx/AuthProvider";
 import { useContext } from "react";
+import { Helmet } from "react-helmet-async";
 const FoodPurchase = () => {
   const food = useLoaderData();
   console.log(food);
@@ -33,18 +34,22 @@ const FoodPurchase = () => {
         "content-type": "application/json",
       },
       body: JSON.stringify(foods),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.insertedId) {
-          swal("Food purchased", "enjoy your meal", "success");
-        }
-        form.reset();
-      });
+    }),
+      { credentials: "include" }
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.insertedId) {
+            swal("Food purchased", "enjoy your meal", "success");
+          }
+          form.reset();
+        });
   };
   return (
     <div>
+      <Helmet>
+        <title>Delights || food purchase</title>
+      </Helmet>
       <div className="bg-gray-900">
         <NavBar></NavBar>
       </div>

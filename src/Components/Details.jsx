@@ -13,6 +13,9 @@ const Details = () => {
   console.log(food);
   return (
     <div className="bg-gray-950">
+      <Helmet>
+        <title>Delights || Details</title>
+      </Helmet>
       <div className="">
         <NavBar></NavBar>
       </div>
