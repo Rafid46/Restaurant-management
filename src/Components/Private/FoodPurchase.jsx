@@ -90,6 +90,7 @@ const FoodPurchase = () => {
                         name="price"
                         className="mb-5 py-3 px-4 block w-full xl:min-w-[18rem] border-gray-200 border-2 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-50"
                         placeholder="price"
+                        value={price}
                       />
                     </label>
                     <label className="mb-5">
@@ -108,6 +109,7 @@ const FoodPurchase = () => {
                         name="foodName"
                         className="mb-5 py-3 px-4 block w-full xl:min-w-[18rem] border-gray-200 border-2 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-50"
                         placeholder="name of the food"
+                        value={foodName}
                       />
                     </label>
                     <label className="mb-5">
