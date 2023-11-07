@@ -29,30 +29,29 @@ const Home = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{
             duration: 0.5,
-            delay: 0.5,
+            delay: 0.7,
           }}
         >
           <Banner></Banner>
         </motion.div>
       </div>
       <section
-        className="mt-[200px] mb-20"
+        className="mt-[200px] mb-10"
         // style={{ backgroundImage: `url(${sectionImage})` }}
       >
-        <section>
-          <div className="flex items-center justify-center">
+        <div className="mt-10">
+          <div className="flex flex-col items-center justify-center mt-10">
             <img
-              className=" w-[200px] h-[200px] lg:w-[400px] lg:h-[400px] md:w-[400px] md:h-[400px] z-10"
+              className="mt-20 -bottom-[480px] absolute w-[200px] h-[200px] lg:w-[400px] lg:h-[400px] md:w-[400px] md:h-[400px] z-10"
               src={sectionImage1}
-              alt=""
             />
+            <div className="container max-w-screen-[1200px] mx-auto relative mt-28">
+              <img className="rounded-lg" src={slide1} />
+              <img className="rounded-lg" src={slide2} />
+              <img className="rounded-lg" src={slide3} />
+              <img className="rounded-lg" src={slide4} />
+            </div>
           </div>
-        </section>
-        <div className="container max-w-screen-[1200px] mx-auto">
-          <img className="rounded-lg" src={slide1} />
-          <img className="rounded-lg" src={slide2} />
-          <img className="rounded-lg" src={slide3} />
-          <img className="rounded-lg" src={slide4} />
         </div>
       </section>
       {/* 2nd section */}

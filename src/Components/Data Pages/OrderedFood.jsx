@@ -7,13 +7,14 @@ import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 // import { useParams } from "react-router-dom";
 import { AuthContext } from "../Provider.jsx/AuthProvider";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 // import { AuthContext } from "../Provider.jsx/AuthProvider";
 
 const OrderedFood = () => {
   const { user, loading } = useContext(AuthContext);
-  const { email } = useParams();
+  // const { email } = useParams();
   const [foodss, setFoodss] = useState([]);
+  // const [meal, setMeal] = useState(foodss);
   // const orderedFood = useLoaderData();
 
   useEffect(() => {
@@ -36,10 +37,6 @@ aspect-square  flex justify-center items-center text-yellow-700"
   }, [user.email, loading]);
 
   console.log(foodss);
-  // const [meal, setMeal] = useState({ orderedFood });
-  const [meal, setMeal] = useState([]);
-  // const { _id } = orderedFood;
-  // console.log(orderedFood);
   const handleDelete = (_id) => {
     console.log(_id);
     Swal.fire({
@@ -63,7 +60,7 @@ aspect-square  flex justify-center items-center text-yellow-700"
             console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
-              setMeal(meal.filter((item) => item._id !== _id));
+              setFoodss(foodss.filter((item) => item._id !== _id));
             }
           });
       }
