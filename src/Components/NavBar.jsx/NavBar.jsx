@@ -117,8 +117,7 @@ const NavBar = () => {
                   className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   <li className="text-gray-500 hover:text-orange-500 hover:bg-gray-300">
-                    <Link>
-                      {" "}
+                    <Link to="/myAddedFood">
                       <a>My added food items</a>
                     </Link>
                   </li>
@@ -130,7 +129,7 @@ const NavBar = () => {
                   </li>
 
                   <li className="text-gray-500  hover:text-orange-500 hover:bg-gray-300">
-                    <Link to="myOrderedFood">
+                    <Link to="/myOrderedFood">
                       <a>My ordered food items</a>
                     </Link>
                   </li>

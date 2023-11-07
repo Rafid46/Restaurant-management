@@ -2,6 +2,7 @@ import Footer from "../Footer";
 import NavBar from "../NavBar.jsx/NavBar";
 
 import black from "../../assets/vintage-old-rustic-cutlery-dark.jpg";
+import swal from "sweetalert";
 const AddProduct = () => {
   const handleAddProduct = (e) => {
     e.preventDefault();
@@ -23,6 +24,21 @@ const AddProduct = () => {
       foodName,
     };
     console.log(foods);
+    fetch("http://localhost:5008/api/foods/addedFood", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(foods),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          swal("food added successfully", "enjoy your meal", "success");
+        }
+        form.reset();
+      });
   };
   return (
     <div className="bg-no-repeat" style={{ backgroundImage: `url(${black})` }}>
@@ -42,7 +58,7 @@ const AddProduct = () => {
                   type="text"
                   id="hero-input"
                   name="foodName"
-                  className="mb-5 py-3 bg-transparent px-4 block w-full xl:min-w-[18rem] border-gray-200 border-2 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-50"
+                  className="mb-5 py-3 bg-transparent px-4 block w-full xl:min-w-[18rem] border-gray-200 border-2 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-50 text-white"
                   placeholder="food name"
                 />
               </label>
@@ -51,7 +67,7 @@ const AddProduct = () => {
                   type="text"
                   id="hero-input"
                   name="image"
-                  className="mb-5 py-3 bg-transparent px-4 block w-full xl:min-w-[18rem] border-gray-200 border-2 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-50"
+                  className="mb-5 py-3 bg-transparent px-4 block w-full xl:min-w-[18rem] border-gray-200 border-2 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-50 text-white"
                   placeholder="image"
                 />
               </label>
@@ -60,7 +76,7 @@ const AddProduct = () => {
                   type="text"
                   id="hero-input"
                   name="price"
-                  className="mb-5 py-3 bg-transparent px-4 block w-full xl:min-w-[18rem] border-gray-200 border-2 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-50"
+                  className="mb-5 py-3 bg-transparent px-4 block w-full xl:min-w-[18rem] border-gray-200 border-2 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-50 text-white"
                   placeholder="price"
                 />
               </label>
@@ -69,7 +85,7 @@ const AddProduct = () => {
                   type="description"
                   id="hero-input"
                   name="description"
-                  className="mb-5 py-3 bg-transparent px-4 block w-full xl:min-w-[18rem] border-gray-200 border-2 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-50"
+                  className="mb-5 py-3 bg-transparent px-4 block w-full xl:min-w-[18rem] border-gray-200 border-2 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-50 text-white"
                   placeholder="description"
                 />
               </label>
@@ -78,7 +94,7 @@ const AddProduct = () => {
                   type="text"
                   id="hero-input"
                   name="foodOrigin"
-                  className="mb-5 py-3 bg-transparent px-4 block w-full xl:min-w-[18rem] border-gray-200 border-2 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-50"
+                  className="mb-5 py-3 bg-transparent px-4 block w-full xl:min-w-[18rem] border-gray-200 border-2 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-50 text-white"
                   placeholder="foodOrigin"
                 />
               </label>
@@ -87,7 +103,7 @@ const AddProduct = () => {
                   type="text"
                   id="hero-input"
                   name="quantity"
-                  className="mb-5 py-3 bg-transparent px-4 block w-full xl:min-w-[18rem] border-gray-200 border-2 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-50"
+                  className="mb-5 py-3 bg-transparent px-4 block w-full xl:min-w-[18rem] border-gray-200 border-2 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-50 text-white"
                   placeholder="quantity"
                 />
               </label>
@@ -96,7 +112,7 @@ const AddProduct = () => {
                   type="text"
                   id="hero-input"
                   name="category"
-                  className="mb-5 py-3 bg-transparent px-4 block w-full xl:min-w-[18rem] border-gray-200 border-2 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-50"
+                  className="mb-5 py-3 bg-transparent px-4 block w-full xl:min-w-[18rem] border-gray-200 border-2 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-50 text-white"
                   placeholder="category"
                 />
               </label>

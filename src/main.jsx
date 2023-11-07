@@ -16,6 +16,7 @@ import Details from "./Components/Details.jsx";
 import FoodPurchase from "./Components/Private/FoodPurchase.jsx";
 import PrivateRoute from "./Components/Private/PrivateRoute.jsx";
 import OrderedFood from "./Components/Data Pages/OrderedFood.jsx";
+import MyAddedFood from "./Components/Data Pages/MyAddedFood.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: "addProduct",
+        path: "/addProduct",
         element: <AddProduct></AddProduct>,
       },
       {
@@ -66,7 +67,12 @@ const router = createBrowserRouter([
       {
         path: "/myOrderedFood",
         element: <OrderedFood></OrderedFood>,
-        loader: () => fetch("http://localhost:5008/api/foods/ordered"),
+        loader: () => fetch("http://localhost:5008/api/purchaseFood"),
+      },
+      {
+        path: "/myAddedFood",
+        element: <MyAddedFood></MyAddedFood>,
+        loader: () => fetch("http://localhost:5008/api/addedFood"),
       },
     ],
   },

@@ -47,14 +47,14 @@ const Register = () => {
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
+            Navigate("/");
           });
-        // Navigate("/");
       });
     });
   };
   return (
     <div>
-      <div className="">
+      <div className="bg-gray-950">
         <NavBar></NavBar>
         <div className="flex items-center justify-center">
           <div className="card px-8 py-6 rounded-lg  w-80">
