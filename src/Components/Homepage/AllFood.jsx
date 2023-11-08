@@ -34,7 +34,7 @@ const AllFood = () => {
   console.log(_id);
   useEffect(() => {
     fetch(
-      `http://localhost:5008/api/foods?page=${currentPage}&size=${itemsPerPage}`
+      `https://restaurent-management-server.vercel.app/api/foods?page=${currentPage}&size=${itemsPerPage}`
     )
       .then((res) => res.json())
       .then((data) => setFoods(data));

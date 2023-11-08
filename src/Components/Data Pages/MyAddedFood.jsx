@@ -9,9 +9,12 @@ const MyAddedFood = () => {
   const [foodss, setFoodss] = useState([]);
   const { user, loading } = useContext(AuthContext);
   useEffect(() => {
-    fetch(`http://localhost:5008/api/addedFood/?email=${user?.email}`, {
-      credentials: "include",
-    })
+    fetch(
+      `https://restaurent-management-server.vercel.app/api/addedFood/?email=${user?.email}`,
+      {
+        credentials: "include",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setFoodss(data);

@@ -31,7 +31,7 @@ const Update = () => {
     };
     const { _id } = loader;
     console.log(foods);
-    fetch(`http://localhost:5008/api/update/${_id}`, {
+    fetch(`https://restaurent-management-server.vercel.app/api/update/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -70,7 +70,7 @@ const Update = () => {
         <NavBar></NavBar>
       </div>
       <section className="mb-10">
-        <h1 className="text-5xl text-center my-10 text-white font-lato font-bold">
+        <h1 className="text-5xl text-center my-10 text-white font-lato font-bold tracking-[5px]">
           UPDATE PRODUCTS
         </h1>
         <div

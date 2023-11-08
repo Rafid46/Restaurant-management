@@ -69,7 +69,7 @@ const NavBar = () => {
       <div className="navbar mb-10">
         <div className="navbar-start">
           <div className="dropdown">
-            <label tabIndex={0} className="btn btn-ghost lg:hidden mr-0">
+            <label tabIndex={0} className="btn btn-ghost  lg:hidden mr-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 text-white"
@@ -87,17 +87,21 @@ const NavBar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-xl"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-gray-900 rounded-box w-52 text-xl"
             >
               {links}
             </ul>
           </div>
           <a className="btn btn-ghost normal-case text-xl">
-            <img className="w-[50px] h-[50px]" src={logo} alt="" />
+            <img
+              className="hidden lg:inline w-[50px] h-[50px]"
+              src={logo}
+              alt=""
+            />
             <p className="text-4xl font-bol text-[#00FFE1] font-Com"></p>
           </a>
         </div>
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-center hidden  lg:flex">
           <ul className="menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar">
@@ -107,11 +111,14 @@ const NavBar = () => {
           ></label> */}
           {user ? (
             <div>
-              <div className="dropdown dropdown-hover">
-                <img
-                  className="rounded-full w-[40px] h-[40px] mr-2"
-                  src={user.photoURL}
-                />
+              <details className="dropdown">
+                <summary className="">
+                  <img
+                    className="rounded-full w-[40px] h-[40px] mr-2 mb-5"
+                    src={user.photoURL}
+                  />
+                </summary>
+
                 <ul
                   tabIndex={0}
                   className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
@@ -134,7 +141,7 @@ const NavBar = () => {
                     </Link>
                   </li>
                 </ul>
-              </div>
+              </details>
               <p className="text-2xl font-thin text-white mr-2">
                 {user.displayName}
               </p>

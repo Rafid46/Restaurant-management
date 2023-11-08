@@ -38,7 +38,7 @@ const Register = () => {
         const userName = result.user?.displayName;
         const dp = result.user?.photoURL;
         const user = { email, userName: userName, dp: dp };
-        fetch("http://localhost:5008/api/user", {
+        fetch("https://restaurent-management-server.vercel.app/api/user", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -62,7 +62,7 @@ const Register = () => {
         <NavBar></NavBar>
         <div className="flex items-center justify-center">
           <div className="card px-8 py-6 rounded-lg  w-80">
-            <h1 className="text-center font-bold text-3xl text-orange-300">
+            <h1 className="text-center font-bold text-3xl text-orange-400">
               R E G I S T E R
             </h1>
             <form onSubmit={handleSignUp} className="my-6">

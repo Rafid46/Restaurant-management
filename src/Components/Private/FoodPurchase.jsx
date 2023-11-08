@@ -30,7 +30,7 @@ const FoodPurchase = () => {
     //         const userName = result.user?.displayName;
     //         const userEmail = result.user?.email;
     //    const user = { userEmail:userEmail, userName:userName, };
-    fetch("http://localhost:5008/api/purchaseFood", {
+    fetch("https://restaurent-management-server.vercel.app/api/purchaseFood", {
       method: "POST",
       headers: {
         "content-type": "application/json",

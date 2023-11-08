@@ -4,7 +4,7 @@ const Banner = () => {
   return (
     <div className="flex flex-col lg:flex-row md:flex-row justify-center">
       <div>
-        <p className="font-TW text-4xl lg:text-9xl font-normal text-yellow-50 text-center mb-16 menu">
+        <p className="font-TW text-6xl lg:text-9xl font-normal text-yellow-50 text-center mb-16 menu tracking-[5px]">
           Epicurean Delights
         </p>
         <h1 className="text-center font-thin font-ZZ text-5xl text-white mb-10">

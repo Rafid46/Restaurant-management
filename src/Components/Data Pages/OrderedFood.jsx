@@ -19,9 +19,12 @@ const OrderedFood = () => {
   // const orderedFood = useLoaderData();
 
   useEffect(() => {
-    fetch(`http://localhost:5008/api/purchaseFood/?email=${user?.email}`, {
-      credentials: "include",
-    })
+    fetch(
+      `https://restaurent-management-server.vercel.app/api/purchaseFood/?email=${user?.email}`,
+      {
+        credentials: "include",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setFoodss(data);
@@ -48,12 +51,15 @@ const OrderedFood = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5008/api/purchaseFood/${_id}`, {
-          method: "DELETE",
-          headers: {
-            "content-type": "application/json",
-          },
-        })
+        fetch(
+          `https://restaurent-management-server.vercel.app/api/purchaseFood/${_id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "content-type": "application/json",
+            },
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);

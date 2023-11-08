@@ -47,10 +47,11 @@ const Home = () => {
           <div className="mt-10">
             <div className="flex flex-col items-center justify-center mt-10">
               <img
-                className="mt-20 -bottom-[480px] absolute w-[200px] h-[200px] lg:w-[400px] lg:h-[400px] md:w-[400px] md:h-[400px] z-10"
+                className="mt-20 -bottom-[350px]  lg:-bottom-[480px] absolute w-[200px] h-[200px] lg:w-[400px] lg:h-[400px] md:w-[400px] 
+                md:h-[400px] z-10"
                 src={sectionImage1}
               />
-              <div className="container max-w-screen-[1200px] mx-auto relative mt-28">
+              <div className="container max-w-screen-[1200px] mx-auto relative mt-28 mb-10 lg:mb-0">
                 <img className="rounded-lg" src={slide1} />
                 <img className="rounded-lg" src={slide2} />
                 <img className="rounded-lg" src={slide3} />
