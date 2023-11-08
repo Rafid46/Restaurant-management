@@ -91,7 +91,7 @@ const Login = () => {
             </div>
           </div>
         </div>
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center mt-5">
           <button
             onClick={handleGoogleSignIn}
             className="btn border-none bg-[#00FFE1] rounded-none items-center"
