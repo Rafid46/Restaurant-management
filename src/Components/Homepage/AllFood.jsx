@@ -4,10 +4,13 @@
 import { Link, useLoaderData } from "react-router-dom";
 import Footer from "../Footer";
 import NavBar from "../NavBar.jsx/NavBar";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaSearchengin } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
+import burger from "../../assets/burg.png";
+import { AuthContext } from "../Provider.jsx/AuthProvider";
 const AllFood = () => {
+  const { loading } = useContext(AuthContext);
   // const foods = useLoaderData();
   // console.log(foods);
   const [foods, setFoods] = useState(useLoaderData());
@@ -35,6 +38,16 @@ const AllFood = () => {
     )
       .then((res) => res.json())
       .then((data) => setFoods(data));
+    // if (loading) {
+    //   return (
+    //     <div
+    //       className="loader rounded-full w-screen h-screen animate-spin
+    // aspect-square flex justify-center items-center text-yellow-700"
+    //     >
+    //       <img src={burger} className="w-[80px] h-[80px]" alt="" />
+    //     </div>
+    //   );
+    // }
   }, [currentPage, itemsPerPage]);
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -2,17 +2,18 @@ import { useLoaderData } from "react-router-dom";
 import NavBar from "../NavBar.jsx/NavBar";
 import Footer from "../Footer";
 import { motion } from "framer-motion";
-import swal from "sweetalert";
 import { AuthContext } from "../Provider.jsx/AuthProvider";
 import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
+import burger from "../../assets/burg.png";
+import Swal from "sweetalert2";
+import swal from "sweetalert";
 const FoodPurchase = () => {
   const food = useLoaderData();
   console.log(food);
-  const { user } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
   //   console.log(food);
-  const { foodName, image, price, description, foodOrigin, foodCategory } =
-    food;
+  const { foodName, image, price } = food;
   const handleAdd = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -34,16 +35,27 @@ const FoodPurchase = () => {
         "content-type": "application/json",
       },
       body: JSON.stringify(foods),
-    }),
-      { credentials: "include" }
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          if (data.insertedId) {
-            swal("Food purchased", "enjoy your meal", "success");
-          }
-          form.reset();
-        });
+      credentials: "include",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (loading) {
+          // return <span className="loading loading-spinner text-accent"></span>;
+          return (
+            <div
+              className="loader  rounded-full w-screen h-screen animate-spin
+          aspect-square  flex justify-center items-center text-yellow-700"
+            >
+              <img src={burger} className="w-[80px] h-[80px]" alt="" />
+            </div>
+          );
+        }
+        if (data.insertedId) {
+          swal("Food purchased", "enjoy your meal", "success");
+        }
+        form.reset();
+      });
   };
   return (
     <div>

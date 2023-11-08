@@ -29,7 +29,7 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "allFood",
+        path: "/allFood",
         element: <AllFood></AllFood>,
         loader: () => fetch("http://localhost:5008/api/foods"),
       },
@@ -85,7 +85,7 @@ const router = createBrowserRouter([
             <MyAddedFood></MyAddedFood>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5008/api/addedFood"),
+        // loader: () => fetch("http://localhost:5008/api/addedFood"),
       },
     ],
   },

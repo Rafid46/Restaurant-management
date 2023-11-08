@@ -2,7 +2,7 @@
 // import { useLoaderData, useParams } from "react-router-dom";
 import NavBar from "../NavBar.jsx/NavBar";
 import Footer from "../Footer";
-import burger from "../../assets/11787888_2450.png";
+import burger from "../../assets/burg.png";
 import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 // import { useParams } from "react-router-dom";
@@ -19,19 +19,15 @@ const OrderedFood = () => {
   // const orderedFood = useLoaderData();
 
   useEffect(() => {
-    fetch(`http://localhost:5008/api/purchaseFood/?email=${user.email}`, {
+    fetch(`http://localhost:5008/api/purchaseFood/?email=${user?.email}`, {
       credentials: "include",
     })
       .then((res) => res.json())
       .then((data) => {
         setFoodss(data);
         if (loading) {
-          // return <span className="loading loading-spinner text-accent"></span>;
           return (
-            <div
-              className="loader  rounded-full w-screen h-screen animate-spin
-aspect-square  flex justify-center items-center text-yellow-700"
-            >
+            <div className="loader  rounded-full w-screen h-screen animate-spin aspect-square flex justify-center items-center text-yellow-700">
               <img src={burger} className="w-[80px] h-[80px]" alt="" />
             </div>
           );

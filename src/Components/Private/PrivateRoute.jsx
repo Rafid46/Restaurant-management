@@ -3,7 +3,7 @@ import { useContext } from "react";
 
 import { Navigate, useLocation } from "react-router-dom";
 
-import burger from "../../assets/11787888_2450.png";
+import burger from "../../assets/burg.png";
 import { AuthContext } from "../Provider.jsx/AuthProvider";
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);

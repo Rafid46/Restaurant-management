@@ -1,6 +1,7 @@
 import { Link, useLoaderData } from "react-router-dom";
 import NavBar from "./NavBar.jsx/NavBar";
 import Footer from "./Footer";
+import { Helmet } from "react-helmet-async";
 
 const Details = () => {
   const food = useLoaderData();

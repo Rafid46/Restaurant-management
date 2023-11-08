@@ -4,7 +4,12 @@ import NavBar from "../NavBar.jsx/NavBar";
 import black from "../../assets/vintage-old-rustic-cutlery-dark.jpg";
 import swal from "sweetalert";
 import { Helmet } from "react-helmet-async";
+import { AuthContext } from "../Provider.jsx/AuthProvider";
+import { useContext } from "react";
+import burger from "../../assets/burg.png";
 const AddProduct = () => {
+  const { loading, user } = useContext(AuthContext);
+
   const handleAddProduct = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -15,17 +20,19 @@ const AddProduct = () => {
     const quantity = form.quantity.value;
     const price = form.price.value;
     const description = form.description.value;
+    const email = user?.email;
     const foods = {
       image,
       description,
       category,
       foodOrigin,
       price,
+      email,
       quantity,
       foodName,
     };
     console.log(foods);
-    fetch("http://localhost:5008/api/foods/addedFood", {
+    fetch("http://localhost:5008/api/addedFood", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -35,6 +42,16 @@ const AddProduct = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        if (loading) {
+          return (
+            <div
+              className="loader  rounded-full w-screen h-screen animate-spin
+aspect-square  flex justify-center items-center text-yellow-700"
+            >
+              <img src={burger} className="w-[80px] h-[80px]" alt="" />
+            </div>
+          );
+        }
         if (data.insertedId) {
           swal("food added successfully", "enjoy your meal", "success");
         }
