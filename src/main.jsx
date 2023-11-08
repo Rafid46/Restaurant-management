@@ -18,6 +18,7 @@ import PrivateRoute from "./Components/Private/PrivateRoute.jsx";
 import OrderedFood from "./Components/Data Pages/OrderedFood.jsx";
 import MyAddedFood from "./Components/Data Pages/MyAddedFood.jsx";
 import { HelmetProvider } from "react-helmet-async";
+import Update from "./Components/Data Pages/Update.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -54,7 +55,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "details/:id",
+        path: "/details/:id",
         element: <Details></Details>,
         loader: ({ params }) =>
           fetch(`http://localhost:5008/api/foods/${params.id}`),
@@ -86,6 +87,16 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         // loader: () => fetch("http://localhost:5008/api/addedFood"),
+      },
+      {
+        path: "/updateFood/:id",
+        element: (
+          <PrivateRoute>
+            <Update></Update>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5008/api/foods/${params.id}`),
       },
     ],
   },

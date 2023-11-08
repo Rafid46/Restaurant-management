@@ -64,7 +64,7 @@ aspect-square  flex justify-center items-center text-yellow-700"
         <title>Delights || my ordered food</title>
       </Helmet>
       <div
-        className="bg-no-repeat"
+        className="bg-no-repeat bg-center bg-cover"
         style={{ backgroundImage: `url(${black})` }}
       >
         <div>
@@ -143,7 +143,7 @@ aspect-square  flex justify-center items-center text-yellow-700"
                 </label>
               </div>
               <div>
-                <button className="mr-8 lg:mr-0 coolBeans ml-10 font-bold font-lato tracking-[2.5px]">
+                <button className="lg:mr-0 coolBeans  ml-[30px] lg:ml-[60px] font-bold font-lato tracking-[2.5px]">
                   ADD FOOD
                 </button>
               </div>

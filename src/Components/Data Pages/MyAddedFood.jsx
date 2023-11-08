@@ -4,6 +4,7 @@ import { AuthContext } from "../Provider.jsx/AuthProvider";
 import Footer from "../Footer";
 import { Helmet } from "react-helmet-async";
 import NavBar from "../NavBar.jsx/NavBar";
+import { Link } from "react-router-dom";
 const MyAddedFood = () => {
   const [foodss, setFoodss] = useState([]);
   const { user, loading } = useContext(AuthContext);
@@ -26,7 +27,7 @@ aspect-square  flex justify-center items-center text-yellow-700"
         }
       });
   }, [user.email, loading]);
-
+  //   const { _id } = foodss;
   return (
     <div>
       <div>
@@ -40,16 +41,16 @@ aspect-square  flex justify-center items-center text-yellow-700"
           <p className="text-4xl font-bold text-center text-green-600">
             MY ORDERED FOODS
           </p>
-          <div className="mt-10 mb-10">
+          <div className="mt-10 mb-10 ">
             {foodss.map((food) => (
               <div
                 key={food._id}
-                className="w-full max-w-[1000px] mx-auto p-4 bg-transparent rounded-lg shadow sm:p-8 "
+                className="w-full max-w-[1000px] mx-auto p-4 bg-transparent rounded-lg shadow sm:p-8  "
               >
                 <div className="grid grid-cols-1 gap-5">
                   <ul role="list" className="">
-                    <li className="py-3 sm:py-4">
-                      <div className="flex items-center space-x-4">
+                    <li className="py-3 sm:py-4 ">
+                      <div className="flex items-center space-x-4 ">
                         <div className="flex-shrink-0">
                           <img
                             className="w-[80px] h-[80px] rounded-full"
@@ -63,33 +64,13 @@ aspect-square  flex justify-center items-center text-yellow-700"
                           </p>
                           <p className="text-sm text-gray-900">{food.date}</p>
                         </div>
-                        <div className="text-base font-semibold text-gray-900 flex flex-col justify-center">
+                        <div className="text-base font-semibold text-gray-900 flex flex-col justify-center items-center">
                           <p className="text-orange-600 text-2xl font-bold">
                             ${food.price}
                           </p>
-                          {/* Open the modal using document.getElementById('ID').showModal() method */}
-                          <button
-                            className="btn"
-                            onClick={() =>
-                              document.getElementById("my_modal_1").showModal()
-                            }
-                          >
-                            open modal
-                          </button>
-                          <dialog id="my_modal_1" className="modal">
-                            <div className="modal-box">
-                              <h3 className="font-bold text-lg">Hello!</h3>
-                              <p className="py-4">
-                                Press ESC key or click the button below to close
-                              </p>
-                              <div className="modal-action">
-                                <form method="dialog">
-                                  {/* if there is a button in form, it will close the modal */}
-                                  <button className="btn">Close</button>
-                                </form>
-                              </div>
-                            </div>
-                          </dialog>
+                          <Link to={`/updateFood/${food._id}`}>
+                            <button className="buttom mt-5">UPDATE</button>
+                          </Link>
                         </div>
                       </div>
                     </li>

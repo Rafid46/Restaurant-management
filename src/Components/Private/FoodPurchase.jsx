@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Navigate, useLoaderData, useNavigate } from "react-router-dom";
 import NavBar from "../NavBar.jsx/NavBar";
 import Footer from "../Footer";
 import { motion } from "framer-motion";
@@ -57,6 +57,7 @@ const FoodPurchase = () => {
         form.reset();
       });
   };
+  const navigate = useNavigate();
   return (
     <div>
       <Helmet>
@@ -150,9 +151,14 @@ const FoodPurchase = () => {
                     </label>
                   </div>
                   <div>
-                    <button className="mr-8 lg:mr-0 coolBeans ml-10 font-bold font-DM tracking-[2.5px]">
-                      PURCHASE
-                    </button>
+                    {food.quantity < 1 ? (
+                      (swal("can not purchase", "no food", "error"),
+                      navigate("/details"))
+                    ) : (
+                      <button className="mr-8 lg:mr-0 coolBeans ml-10 font-bold font-DM tracking-[2.5px]">
+                        PURCHASE
+                      </button>
+                    )}
                   </div>
                 </form>
               </div>
