@@ -41,7 +41,7 @@ aspect-square  flex justify-center items-center text-yellow-700"
           <p className="text-4xl font-bold text-center text-green-600">
             MY ORDERED FOODS
           </p>
-          <div className="mt-10 mb-10 ">
+          <div className="mt-10 mb-10 gap-5">
             {foodss.map((food) => (
               <div
                 key={food._id}

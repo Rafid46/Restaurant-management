@@ -19,6 +19,7 @@ import OrderedFood from "./Components/Data Pages/OrderedFood.jsx";
 import MyAddedFood from "./Components/Data Pages/MyAddedFood.jsx";
 import { HelmetProvider } from "react-helmet-async";
 import Update from "./Components/Data Pages/Update.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -97,6 +98,10 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5008/api/foods/${params.id}`),
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
       },
     ],
   },

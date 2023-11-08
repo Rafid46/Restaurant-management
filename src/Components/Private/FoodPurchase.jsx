@@ -1,4 +1,4 @@
-import { Navigate, useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import NavBar from "../NavBar.jsx/NavBar";
 import Footer from "../Footer";
 import { motion } from "framer-motion";
@@ -9,6 +9,7 @@ import burger from "../../assets/burg.png";
 import Swal from "sweetalert2";
 import swal from "sweetalert";
 const FoodPurchase = () => {
+  const navigate = useNavigate();
   const food = useLoaderData();
   console.log(food);
   const { user, loading } = useContext(AuthContext);
@@ -57,7 +58,7 @@ const FoodPurchase = () => {
         form.reset();
       });
   };
-  const navigate = useNavigate();
+
   return (
     <div>
       <Helmet>
@@ -151,9 +152,9 @@ const FoodPurchase = () => {
                     </label>
                   </div>
                   <div>
-                    {food.quantity < 1 ? (
+                    {food.quantity < 1 || food.quantity > 20 ? (
                       (swal("can not purchase", "no food", "error"),
-                      navigate("/details"))
+                      navigate(-1))
                     ) : (
                       <button className="mr-8 lg:mr-0 coolBeans ml-10 font-bold font-DM tracking-[2.5px]">
                         PURCHASE

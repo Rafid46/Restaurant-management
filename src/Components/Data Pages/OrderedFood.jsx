@@ -57,6 +57,16 @@ const OrderedFood = () => {
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
+            if (loading) {
+              return (
+                <div
+                  className="loader  rounded-full w-screen h-screen animate-spin
+aspect-square  flex justify-center items-center text-yellow-700"
+                >
+                  <img src={burger} className="w-[80px] h-[80px]" alt="" />
+                </div>
+              );
+            }
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
               setFoodss(foodss.filter((item) => item._id !== _id));

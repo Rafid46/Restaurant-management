@@ -20,6 +20,7 @@ const AddProduct = () => {
     const quantity = form.quantity.value;
     const price = form.price.value;
     const description = form.description.value;
+    const count = form.count.value;
     const email = user?.email;
     const foods = {
       image,
@@ -30,6 +31,7 @@ const AddProduct = () => {
       email,
       quantity,
       foodName,
+      count,
     };
     console.log(foods);
     fetch("http://localhost:5008/api/addedFood", {
@@ -139,6 +141,16 @@ aspect-square  flex justify-center items-center text-yellow-700"
                     name="category"
                     className="mb-5 py-3 bg-transparent px-4 block w-full xl:min-w-[18rem] border-gray-200 border-2 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-50 text-white"
                     placeholder="category"
+                  />
+                </label>
+                <label className="mb-5">
+                  <input
+                    type="text"
+                    id="hero-input"
+                    name="count"
+                    className="mb-5 py-3 bg-transparent px-4 block w-full xl:min-w-[18rem] border-gray-200 border-2 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-50 text-white"
+                    placeholder="count"
+                    value={0}
                   />
                 </label>
               </div>
