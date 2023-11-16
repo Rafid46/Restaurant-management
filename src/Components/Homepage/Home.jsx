@@ -11,6 +11,7 @@ import sectionImage2 from "../../assets/2nd.png";
 import Footer from "../Footer";
 import homeBanner from "../../assets/43731-O4130W.png";
 import { Helmet } from "react-helmet-async";
+
 // import BannerPng from "../../assets/fresh-gourmet-meal-beef-taco-salad-plate-generated-by-ai (1).png";
 // import Banner from "./Homepage/Banner";
 const Home = () => {
@@ -66,6 +67,7 @@ const Home = () => {
             <img className="w-full mx-auto" src={sectionImage2} alt="" />
           </div>
         </section>
+        {/* top6 section */}
         {/* footer */}
         <Footer></Footer>
       </div>

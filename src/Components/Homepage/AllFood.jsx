@@ -13,28 +13,29 @@ const AllFood = () => {
   const { loading } = useContext(AuthContext);
   // const foods = useLoaderData();
   // console.log(foods);
-  const [foods, setFoods] = useState(useLoaderData());
+  const [foods, setFoods] = useState([]);
   console.log(foods);
+  const { count } = useLoaderData();
+  console.log(count);
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemPerPage] = useState(9);
-  const [input, setInput] = useState("");
-  // const [search, setSearch] = useState(" ");
 
-  const itemPerPage = 6;
+  // const [input, setInput] = useState("");
 
-  const numberOfPages = Math.ceil(foods.length / itemPerPage);
+  const numberOfPages = Math.ceil(count / itemsPerPage);
   console.log(numberOfPages);
-  // const pages = [...Array(numberOfPages).keys()];
-  const pages = [];
-  for (let i = 0; i < numberOfPages; i++) {
-    pages.push(i);
-  }
+  const pages = [...Array(numberOfPages).keys()];
+  // const pages = [];
+  // for (let i = 0; i < numberOfPages; i++) {
+  //   pages.push(i);
+  // }
   // const { foodName, image, foodCategory, price, quantity } = foods;
   const { _id } = foods;
   console.log(_id);
+  const [search, setSearch] = useState(" ");
   useEffect(() => {
     fetch(
-      `https://restaurent-management-server.vercel.app/api/foods?page=${currentPage}&size=${itemsPerPage}`
+      `http://localhost:5008/api/foods?page=${currentPage}&size=${itemsPerPage}&search=${search}`
     )
       .then((res) => res.json())
       .then((data) => setFoods(data));
@@ -48,12 +49,14 @@ const AllFood = () => {
     //     </div>
     //   );
     // }
-  }, [currentPage, itemsPerPage]);
+  }, [currentPage, itemsPerPage, search]);
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (input) {
-      setSearch(input);
-    }
+    const searchText = e.target.search.value;
+    // if (input) {
+    //   setSearch(input);
+    // }
+    setSearch(searchText);
     console.log("searched");
   };
   return (
@@ -70,23 +73,23 @@ const AllFood = () => {
           <form onSubmit={handleSubmit}>
             <div className="input-container">
               <input
-                onChange={(e) => setInput(e.target.value)}
                 type="text"
-                value={input}
-                name="text"
-                className="input"
+                // value={input}
+                name="search"
+                className="input text-white"
                 placeholder="search..."
               />
               <span className="icon text-white">
-                <button>
+                <button type="submit">
                   <FaSearchengin></FaSearchengin>
                 </button>
               </span>
             </div>
           </form>
         </div>
+        {/* ?.filter((food) => food.foodName.toLowerCase().includes(search)) */}
         <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2">
-          {foods.map((food) => (
+          {foods?.map((food) => (
             <div
               key={food._id}
               className="max-w-screen-[1200px] mx-auto mb-20 mt-10"

@@ -31,7 +31,7 @@ const Update = () => {
     };
     const { _id } = loader;
     console.log(foods);
-    fetch(`https://restaurent-management-server.vercel.app/api/update/${_id}`, {
+    fetch(`http://localhost:5008/api/update/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

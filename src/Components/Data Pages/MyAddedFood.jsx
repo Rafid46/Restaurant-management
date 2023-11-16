@@ -9,12 +9,9 @@ const MyAddedFood = () => {
   const [foodss, setFoodss] = useState([]);
   const { user, loading } = useContext(AuthContext);
   useEffect(() => {
-    fetch(
-      `https://restaurent-management-server.vercel.app/api/addedFood/?email=${user?.email}`,
-      {
-        credentials: "include",
-      }
-    )
+    fetch(`http://localhost:5008/api/addedFood/?email=${user?.email}`, {
+      credentials: "include",
+    })
       .then((res) => res.json())
       .then((data) => {
         setFoodss(data);
@@ -24,7 +21,7 @@ const MyAddedFood = () => {
               className="loader  rounded-full w-screen h-screen animate-spin
 aspect-square  flex justify-center items-center text-yellow-700"
             >
-              <img src={burger} className="w-[80px] h-[80px]" alt="" />
+              <img src={burger} className="w-[80px] h-[80px] gap" alt="" />
             </div>
           );
         }

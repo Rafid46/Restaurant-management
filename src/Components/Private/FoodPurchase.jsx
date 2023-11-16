@@ -3,12 +3,13 @@ import NavBar from "../NavBar.jsx/NavBar";
 import Footer from "../Footer";
 import { motion } from "framer-motion";
 import { AuthContext } from "../Provider.jsx/AuthProvider";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import burger from "../../assets/burg.png";
 import Swal from "sweetalert2";
 import swal from "sweetalert";
 const FoodPurchase = () => {
+  const [count, setCount] = useState(0);
   const navigate = useNavigate();
   const food = useLoaderData();
   console.log(food);
@@ -25,18 +26,26 @@ const FoodPurchase = () => {
     const quantity = form.quantity.value;
     const price = form.price.value;
     const image = form.image.value;
-    const foods = { yourName, email, price, quantity, image, date, foodiName };
+    // const count = form.count.value;
+    const count = parseInt(form.count.value, 10);
+    const foods = {
+      yourName,
+      email,
+      price,
+      count: count,
+      quantity,
+      image,
+      date,
+      foodiName,
+    };
+    setCount(parseInt(count, 10) + 1);
     console.log(foods);
-    //         const userName = result.user?.displayName;
-    //         const userEmail = result.user?.email;
-    //    const user = { userEmail:userEmail, userName:userName, };
-    fetch("https://restaurent-management-server.vercel.app/api/purchaseFood", {
+    fetch("http://localhost:5008/api/purchaseFood", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(foods),
-      credentials: "include",
     })
       .then((res) => res.json())
       .then((data) => {
@@ -148,6 +157,16 @@ const FoodPurchase = () => {
                         className="mb-5 py-3 px-4 block w-full xl:min-w-[18rem] border-gray-200 border-2 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-50"
                         placeholder="image"
                         value={image}
+                      />
+                    </label>
+                    <label className="mb-5">
+                      <input
+                        type="text"
+                        id="hero-input"
+                        name="count"
+                        className="mb-5 py-3 px-4 block w-full xl:min-w-[18rem] border-gray-200 border-2 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-50"
+                        placeholder="count"
+                        value={count}
                       />
                     </label>
                   </div>
