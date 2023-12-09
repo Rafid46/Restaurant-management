@@ -7,7 +7,7 @@
 - Allow customers to add selected items to their cart.
 - Display a summary of the order.Provide an option for customers to place the order.
 
-live link: restaurant-management-4c7d4.web.app
+live link:  [https://tubular-dusk-eba567.netlify.app](https://tubular-dusk-eba567.netlify.app) 
 
 ### Technologies that i used:
 
