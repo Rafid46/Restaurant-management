@@ -11,7 +11,8 @@ import sectionImage2 from "../../assets/2nd.png";
 import Footer from "../Footer";
 import homeBanner from "../../assets/43731-O4130W.png";
 import { Helmet } from "react-helmet-async";
-
+import ScrollToTop from "react-scroll-to-top";
+import { IoIosArrowDropup } from "react-icons/io";
 // import BannerPng from "../../assets/fresh-gourmet-meal-beef-taco-salad-plate-generated-by-ai (1).png";
 // import Banner from "./Homepage/Banner";
 const Home = () => {
@@ -20,6 +21,14 @@ const Home = () => {
       <Helmet>
         <title>Delights || Home</title>
       </Helmet>
+      <ScrollToTop
+        className="pl-[9px] text-3xl text-red-600 shadow-none bg-none rounded-none"
+        style={{ backgroundColor: "transparent" }}
+        smooth
+        width="20px"
+        height="20px"
+        component={<IoIosArrowDropup />}
+      />
       <div
         className="bg-cover bg-center"
         style={{ backgroundImage: `url(${homeBanner})` }}

@@ -18,7 +18,7 @@ const Blog = () => {
             <h1 className="text-5xl font-bold text-green-500">
               What is one way data binding
             </h1>
-            <p className="text-2xl p-10">
+            <p className="text-2xl p-10 font-codec">
               One-way data binding is a concept commonly used in software
               development, particularly in the context of user interfaces and
               frameworks like Angular and React. It refers to the process of

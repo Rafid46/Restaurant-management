@@ -47,7 +47,7 @@ body {
   transform: scale(1.05);
   will-change: transform; /* This line is already correct. No need to change it. */
 }
-
+/*  */
 .menu {
   -webkit-text-stroke: 1px #fff;
   color: transparent;

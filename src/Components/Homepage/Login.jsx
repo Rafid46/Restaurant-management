@@ -7,6 +7,7 @@ import swal from "sweetalert";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../Provider.jsx/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import Footer from "../Footer";
 const Login = () => {
   const [mainUser, setMainUser] = useState(null);
   const location = useLocation();
@@ -53,14 +54,14 @@ const Login = () => {
       </Helmet>
       <div
         //   style={{ backgroundImage: `url(${bannerImage})` }}
-        className="bg-cover bg-center h-[1000px] max-w-10xl mx-auto bg-gray-900"
+        className="bg-cover bg-center h-[1000px] max-w-10xl mx-auto bg-gray-950"
       >
         <NavBar></NavBar>
-        <div className="">
+        <div className="mt-20">
           <div className="flex items-center justify-center">
             <div className="card rounded-lg w-72">
-              <h1 className="text-center font-bold text-3xl text-white">
-                L O G I N
+              <h1 className="text-center font-bold text-5xl text-white">
+                Login
               </h1>
               <form onSubmit={handleLogin} className="my-6">
                 <input
@@ -94,7 +95,7 @@ const Login = () => {
         <div className="flex items-center justify-center mt-5">
           <button
             onClick={handleGoogleSignIn}
-            className="btn border-none bg-[#00FFE1] rounded-none items-center"
+            className="btn border-none bg-[#00FFE1] rounded-full items-center"
           >
             <FaGoogle className="text-2xl"></FaGoogle>
             Google
@@ -103,6 +104,7 @@ const Login = () => {
         <img src={mainUser.photoURL} alt="" /> */}
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

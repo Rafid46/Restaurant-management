@@ -111,7 +111,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProviders>
       <HelmetProvider>
-        <RouterProvider router={router} />
+        <div className="font-poppins">
+          <RouterProvider router={router} />
+        </div>
       </HelmetProvider>
     </AuthProviders>
   </React.StrictMode>
