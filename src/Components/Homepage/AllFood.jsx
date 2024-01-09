@@ -8,6 +8,7 @@ import { useContext, useEffect, useState } from "react";
 import { FaSearchengin } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 import burger from "../../assets/burg.png";
+import { IoIosSearch } from "react-icons/io";
 import { AuthContext } from "../Provider.jsx/AuthProvider";
 const AllFood = () => {
   const { loading } = useContext(AuthContext);
@@ -35,7 +36,7 @@ const AllFood = () => {
   const [search, setSearch] = useState(" ");
   useEffect(() => {
     fetch(
-      `http://localhost:5008/api/foods?page=${currentPage}&size=${itemsPerPage}&search=${search}`
+      `https://restaurent-management-server.vercel.app/api/foods?page=${currentPage}&size=${itemsPerPage}&search=${search}`
     )
       .then((res) => res.json())
       .then((data) => setFoods(data));
@@ -69,19 +70,20 @@ const AllFood = () => {
           <NavBar></NavBar>
         </div>
         {/* search */}
-        <div className="flex items-center justify-center">
+        <div className="flex items-center max-w-screen-xl mx-auto justify-center lg:justify-start mt-10">
           <form onSubmit={handleSubmit}>
-            <div className="input-container">
+            <div className="input-container flex items-center">
               <input
+                autoFocus={true}
                 type="text"
                 // value={input}
                 name="search"
-                className="input text-white"
-                placeholder="search..."
+                className="input text-gray-900"
+                placeholder="search food..."
               />
-              <span className="icon text-white">
+              <span className="icon text-black">
                 <button type="submit">
-                  <FaSearchengin></FaSearchengin>
+                  <IoIosSearch />
                 </button>
               </span>
             </div>

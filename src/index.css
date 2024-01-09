@@ -131,11 +131,6 @@ body {
   place-content: flex-start;
 }
 
-.rounded-lg {
-  /* class tailwind */
-  border-radius: 10px;
-}
-
 .article-wrapper:hover .project-hover {
   -webkit-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
@@ -302,3 +297,4 @@ body {
 .static:active {
   transform: translateY(-1px);
 }
+/* extra section */

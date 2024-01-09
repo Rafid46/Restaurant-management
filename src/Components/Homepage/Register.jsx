@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../Provider.jsx/AuthProvider";
 import swal from "sweetalert";
 import { Helmet } from "react-helmet-async";
+import Footer from "../Footer";
 
 const Register = () => {
   const [registerError, setRegisterError] = useState("");
@@ -38,7 +39,7 @@ const Register = () => {
         const userName = result.user?.displayName;
         const dp = result.user?.photoURL;
         const user = { email, userName: userName, dp: dp };
-        fetch("http://localhost:5008/api/user", {
+        fetch("https://restaurent-management-server.vercel.app/api/user", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -62,8 +63,8 @@ const Register = () => {
         <NavBar></NavBar>
         <div className="flex items-center justify-center">
           <div className="card px-8 py-6 rounded-lg  w-80">
-            <h1 className="text-center font-bold text-3xl text-orange-400">
-              R E G I S T E R
+            <h1 className="text-center font-bold text-5xl text-orange-400">
+              Register
             </h1>
             <form onSubmit={handleSignUp} className="my-6">
               <input
@@ -90,12 +91,12 @@ const Register = () => {
                 type="password"
                 name="password"
               ></input>
-              <button className="w-full h-[40px] bg-slate-500 my-3 rounded-md cursor-pointer relative overflow-hidden transition-all duration-500 ease-in-out shadow-md hover:scale-105 hover:shadow-lg before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#009b49] before:to-[rgb(105,184,141)] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-md hover:before:left-0 text-[#ffffff] font-medium">
+              <button className="w-full h-[40px] border-2 border-gray-500 my-3 rounded-md cursor-pointer relative overflow-hidden transition-all duration-500 ease-in-out shadow-md hover:scale-105 hover:shadow-lg before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#009b49] before:to-[rgb(105,184,141)] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-md hover:before:left-0 text-[#ffffff] font-medium">
                 R E G I S T E R
               </button>
             </form>
             <p className="text-center text-gray-200">
-              Already have an account,
+              Already have an account ?
               <span>
                 {" "}
                 <Link className="text-[#00FFE1] ml-2" to="/login">
@@ -107,6 +108,7 @@ const Register = () => {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

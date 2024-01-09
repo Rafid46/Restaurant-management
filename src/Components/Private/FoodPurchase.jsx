@@ -27,20 +27,20 @@ const FoodPurchase = () => {
     const price = form.price.value;
     const image = form.image.value;
     // const count = form.count.value;
-    const count = parseInt(form.count.value, 10);
+    // const count = parseInt(form.count.value, 10);
     const foods = {
       yourName,
       email,
       price,
-      count: count,
+      // count: count,
       quantity,
       image,
       date,
       foodiName,
     };
-    setCount(parseInt(count, 10) + 1);
+    // setCount(parseInt(count, 10) + 1);
     console.log(foods);
-    fetch("http://localhost:5008/api/purchaseFood", {
+    fetch("https://restaurent-management-server.vercel.app/api/purchaseFood", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -73,10 +73,10 @@ const FoodPurchase = () => {
       <Helmet>
         <title>Delights || food purchase</title>
       </Helmet>
-      <div className="bg-gray-900">
+      <div className="bg-gray-900 bg-opacity-60">
         <NavBar></NavBar>
       </div>
-      <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+      <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 mb-20 mt-20">
         <div className="grid lg:grid-cols-7 lg:gap-x-8 xl:gap-x-12 lg:items-center">
           <div className="lg:col-span-3">
             <h1 className="block text-3xl font-bold text-green-500 sm:text-4xl md:text-5xl lg:text-6xl">
@@ -154,21 +154,21 @@ const FoodPurchase = () => {
                         type="text"
                         id="hero-input"
                         name="image"
-                        className="mb-5 py-3 px-4 block w-full xl:min-w-[18rem] border-gray-200 border-2 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-50"
+                        className="mb-5 hidden py-3 px-4 w-full xl:min-w-[18rem] border-gray-200 border-2 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-50"
                         placeholder="image"
                         value={image}
                       />
                     </label>
-                    <label className="mb-5">
+                    {/* <label className="mb-5">
                       <input
                         type="text"
                         id="hero-input"
                         name="count"
-                        className="mb-5 py-3 px-4 block w-full xl:min-w-[18rem] border-gray-200 border-2 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-50"
+                        className="mb-5 py-3 hidden px-4 block w-full xl:min-w-[18rem] border-gray-200 border-2 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-50"
                         placeholder="count"
                         value={count}
                       />
-                    </label>
+                    </label> */}
                   </div>
                   <div>
                     {food.quantity < 1 || food.quantity > 20 ? (

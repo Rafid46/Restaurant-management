@@ -34,7 +34,7 @@ const AddProduct = () => {
       count,
     };
     console.log(foods);
-    fetch("http://localhost:5008/api/addedFood", {
+    fetch("https://restaurent-management-server.vercel.app/api/addedFood", {
       method: "POST",
       headers: {
         "content-type": "application/json",

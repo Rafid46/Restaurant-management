@@ -33,7 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/allFood",
         element: <AllFood></AllFood>,
-        loader: () => fetch("http://localhost:5008/productsCount"),
+        loader: () =>
+          fetch(
+            "https://restaurent-management-server.vercel.app/productsCount"
+          ),
       },
       {
         path: "blog",
@@ -59,7 +62,9 @@ const router = createBrowserRouter([
         path: "/details/:id",
         element: <Details></Details>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5008/api/foods/${params.id}`),
+          fetch(
+            `https://restaurent-management-server.vercel.app/api/foods/${params.id}`
+          ),
       },
       {
         path: "purchase/:id",
@@ -69,7 +74,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5008/api/foods/${params.id}`),
+          fetch(
+            `https://restaurent-management-server.vercel.app/api/foods/${params.id}`
+          ),
       },
       {
         path: "/myOrderedFood",
@@ -78,7 +85,7 @@ const router = createBrowserRouter([
             <OrderedFood></OrderedFood>
           </PrivateRoute>
         ),
-        // loader: () => fetch("http://localhost:5008/api/purchaseFood"),
+        // loader: () => fetch("https://restaurent-management-server.vercel.app/api/purchaseFood"),
       },
       {
         path: "/myAddedFood",
@@ -87,7 +94,7 @@ const router = createBrowserRouter([
             <MyAddedFood></MyAddedFood>
           </PrivateRoute>
         ),
-        // loader: () => fetch("http://localhost:5008/api/addedFood"),
+        // loader: () => fetch("https://restaurent-management-server.vercel.app/api/addedFood"),
       },
       {
         path: "/updateFood/:id",
@@ -97,7 +104,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5008/api/foods/${params.id}`),
+          fetch(
+            `https://restaurent-management-server.vercel.app/api/foods/${params.id}`
+          ),
       },
       {
         path: "/blog",

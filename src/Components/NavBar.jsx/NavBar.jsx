@@ -6,6 +6,7 @@ import swal from "sweetalert";
 import { motion } from "framer-motion";
 import { FaRegUserCircle } from "react-icons/fa";
 import { IoMdLogOut } from "react-icons/io";
+import { FiShoppingCart } from "react-icons/fi";
 const nextVariants = {
   hidden: {
     x: "-100vw",
@@ -51,24 +52,32 @@ const NavBar = () => {
     >
       <>
         <nav className="flex flex-col md:flex-row lg:flex-row items-center justify-between mt-6">
-          <li className="text-xl mr-10 font-thin text-orange-600">
+          <li className="text-xl mr-10 font-thin text-white">
             <NavLink
               to="/"
               className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "" : "text-white"
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? "text-orange-400 text-xl "
+                  : "hover:text-orange-400"
               }
             >
-              HOME
+              Home
             </NavLink>
           </li>
-          <li className="text-xl mr-10  font-thin text-orange-600">
+          <li className="text-xl mr-10  font-thin text-white">
             <NavLink
               to="/allFood"
               className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "" : "text-white"
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? "text-orange-400 text-xl "
+                  : "hover:text-orange-400"
               }
             >
-              ALL FOOD
+              All Item
             </NavLink>
           </li>
           {/* <li className="text-2xl mr-10  font-thin">
@@ -78,21 +87,39 @@ const NavBar = () => {
                 isPending
                   ? "pending"
                   : isActive
-                  ? "text-orange-600"
+                  ? "text-white"
                   : "text-white"
               }
             >
               BLOG
             </NavLink>
           </li> */}
-          <li className="text-xl mr-10  font-thin text-orange-600">
+          <li className="text-xl mr-10  font-thin text-white">
             <NavLink
               to="/login"
               className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "" : "text-white"
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? "text-orange-400 text-xl "
+                  : "hover:text-orange-400"
               }
             >
-              LOGIN
+              Login
+            </NavLink>
+          </li>
+          <li className="text-xl mr-10  font-thin text-orange-600">
+            <NavLink
+              to="/myOrderedFood"
+              className={({ isActive, isPending }) =>
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? "text-white text-2xl"
+                  : "hover:text-orange-400"
+              }
+            >
+              <FiShoppingCart />
             </NavLink>
           </li>
         </nav>
@@ -143,13 +170,18 @@ const NavBar = () => {
             <>
               <div className="dropdown dropdown-end">
                 <summary tabIndex={0} className="btn btn-ghost rounded-btn">
-                  <div className="avatar">
-                    <div className="rounded-full w-[40px] h-[40px]">
+                  <div className="">
+                    <div className="">
                       {user?.photoURL ? (
-                        <img
-                          className=" rounded-full border-2 border-black"
-                          src={user?.photoURL}
-                        />
+                        <div className="flex items-center justify-evenly">
+                          <p className="text-white mr-5 border-2 border-opacity-30 border-gray-200 rounded-full px-5 py-2">
+                            {user?.displayName}
+                          </p>
+                          <img
+                            className="rounded-full w-[40px] border-black"
+                            src={user?.photoURL}
+                          />
+                        </div>
                       ) : (
                         <div className="text-3xl">
                           <FaRegUserCircle />
@@ -160,38 +192,40 @@ const NavBar = () => {
                 </summary>
                 <ul
                   tabIndex={0}
-                  className="menu dropdown-content z-[1] p-2 bg-white border-gray-400 border-2 rounded-box w-52 mt-4"
+                  className="menu dropdown-content z-[1] p-2 text-sm w-52 mt-4"
                 >
-                  <li>
-                    <a className="cursor-none">{user?.displayName}</a>
-                  </li>
-                  <Link>
-                    <li className="flex justify-between">
-                      <button
-                        className="text-white hover:text-amber-500"
-                        onClick={handleSignOut}
-                      >
-                        Logout
-                        <IoMdLogOut className="ml-20" />
-                      </button>
+                  <div className="bg-gray-900 font-thin rounded-lg">
+                    <li>
+                      <a className="cursor-none">{user?.displayName}</a>
                     </li>
-                  </Link>
-                  <hr className="w-10/12 mx-auto border-gray-400" />
-                  <li className="text-gray-100 hover:text-orange-500">
-                    <Link to="/myAddedFood">
-                      <a>My added food items</a>
+                    <Link>
+                      <li className="flex justify-between text-sm ">
+                        <button
+                          className="text-white hover:text-amber-500"
+                          onClick={handleSignOut}
+                        >
+                          Logout
+                          <IoMdLogOut className="ml-20" />
+                        </button>
+                      </li>
                     </Link>
-                  </li>
-                  <li className="text-gray-100 hover:text-orange-500">
-                    <Link to="/myOrderedFood">
-                      <a>My ordered food</a>
-                    </Link>
-                  </li>
-                  <li className="text-gray-100 hover:text-orange-500">
-                    <Link to="/addProduct">
-                      <a>Add food</a>
-                    </Link>
-                  </li>
+                    <hr className="w-10/12 mx-auto border-gray-400 border-opacity-30 my-4" />
+                    <li className="text-gray-100 hover:text-orange-500 text-sm">
+                      <Link to="/myAddedFood">
+                        <a>My added food items</a>
+                      </Link>
+                    </li>
+                    <li className="text-gray-100 hover:text-orange-500">
+                      <Link to="/myOrderedFood">
+                        <a>My ordered food</a>
+                      </Link>
+                    </li>
+                    <li className="text-gray-100 hover:text-orange-500">
+                      <Link to="/addProduct">
+                        <a>Add food</a>
+                      </Link>
+                    </li>
+                  </div>
                 </ul>
               </div>
             </>
@@ -199,7 +233,6 @@ const NavBar = () => {
             <></>
           )}
         </div>
-        ;
       </div>
     </div>
   );
