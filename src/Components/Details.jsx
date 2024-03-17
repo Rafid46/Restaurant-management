@@ -46,11 +46,11 @@ const Details = () => {
                 </p>
               </div>
             </div>
-            <div className="text-center">
+            {/* <div className="text-center">
               <Link to={`/purchase/${_id}`}>
                 <button className="buttom">ORDER</button>
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

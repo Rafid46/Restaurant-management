@@ -10,16 +10,22 @@ const Extrasection = () => {
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-stretch">
             <div
               className="grid place-content-center rounded   p-6 sm:p-8 bg-cover bg-center bg-blend-darken"
-              style={{ backgroundImage: `url(${image})` }}
+              style={{
+                background: `linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,0.7)), url(${image})`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
             >
               <div className="mx-auto max-w-md text-center lg:text-left">
                 <header>
-                  <h2 className="text-6xl font-bold text-orange-500">
+                  <h2 className="text-6xl font-bold text-orange-400">
                     Are you hungry?
                   </h2>
 
-                  <p className="mt-4 text-blue-500 text-4xl font-semibold">
-                    Explore the featured
+                  <p className="mt-4 text-green-400 w-auto py-3 pl-5 text-3xl font-semibold rounded-lg bg-slate-500">
+                    Explore the <br /> featured foods
+                    <span className="text-orange-500">.</span>
                   </p>
                 </header>
 

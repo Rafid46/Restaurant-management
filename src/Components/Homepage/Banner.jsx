@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 // const nextVariants = {
 //   hidden: {
 //     x: "-100vw",
@@ -29,7 +28,7 @@ const Banner = () => {
           <Link to="allFood">
             <button
               data-aos="zoom-out"
-              data-aos-delay="200"
+              data-aos-delay="400"
               className="hover:scale-2 btn text-xl font-ZZ rounded-none w-[200px] px-5 pb-9 pt-4 bg-transparent text-white hover:text-orange-500"
             >
               M E N U S

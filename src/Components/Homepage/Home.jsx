@@ -1,7 +1,6 @@
 import NavBar from "../NavBar.jsx/NavBar";
 import bannerImage from "../../assets/png3.png";
 import Banner from "./Banner";
-import { motion } from "framer-motion";
 import slide1 from "../../assets/crispy-fried-chicken-plate-with-salad-carrot.jpg";
 import slide2 from "../../assets/baked-chicken-wings-asian-style-tomatoes-sauce-plate.jpg";
 import slide3 from "../../assets/delicious-burger-with-many-ingredients-isolated-white-background-tasty-cheeseburger-splash-sauce.jpg";
@@ -29,11 +28,13 @@ const Home = () => {
     });
   }, []);
   const scrollUp = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    const scrollStep = window.scrollY / 40;
+    const scrollInterval = setInterval(() => {
+      if (window.scrollY === 0) clearInterval(scrollInterval);
+      window.scrollBy(0, -scrollStep);
+    }, 15);
   };
+
   return (
     <div>
       <Helmet>
@@ -56,17 +57,9 @@ const Home = () => {
           className="bg-cover bg-center h-[1000px] max-w-10xl mx-auto"
         >
           <NavBar></NavBar>
-          <motion.div
-            className="mt-[100px]"
-            initial={{ opacity: 0, scale: 2 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              duration: 0.5,
-              delay: 0.7,
-            }}
-          >
+          <div className="mt-[100px]" data-aos="zoom-out" data-aos-delay="100">
             <Banner></Banner>
-          </motion.div>
+          </div>
         </div>
         <section
           className="mt-[200px] mb-10"
